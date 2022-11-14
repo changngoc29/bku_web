@@ -15,8 +15,8 @@
              <h1 class="text-center">Log in</h1>
              <form method="POST" action="../utils/login_handling.php">
                  <div class="mb-3">
-                     <label for="account" class="form-label">Your account: </label></label>
-                     <input type="text" name="account" class="form-control" id="account">
+                     <label for="username" class="form-label">Username: </label></label>
+                     <input type="text" name="username" class="form-control" id="username">
                  </div>
                  <div class="mb-3">
                      <label for="password" class="form-label">Password:</label>
