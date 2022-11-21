@@ -18,8 +18,7 @@ if (isset($_POST["login"])) {
         setcookie($cookie_name, $cookie_value, time() + 3600, "/");
 
         header("Location: ../pages/welcome.php");
-    }
-    else {
+    } else {
         header("Location: ../pages/login.php");
     }
 }

@@ -6,7 +6,8 @@
  </style>
 
  <div class="container row m-auto">
-     <div class="col-6">
+     <div class="col-6 text-center">
+         <h1><a href="http://localhost/bku/index.php?page=home">Want to only visit page</a></h1>
          <img src="../img/HCMUT_official_logo.png" alt="HCMUT logo" class="mx-auto d-block">
      </div>
 

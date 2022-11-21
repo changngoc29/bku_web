@@ -1,3 +1,9 @@
+<?php
+if (!isset($_SESSION)) {
+    session_start();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,7 +53,7 @@
     </nav> -->
     <div class="container m-auto text-center" id='navbar'>
         <header class="row py-3 mb-4 border-bottom">
-            <div class="row col-md-10 navbar-left d-flex justify-content-start align-items-center">
+            <div class="row col-md-10 col-5 col  navbar-left d-flex justify-content-start align-items-center">
                 <img class="col-md-1 col-1" src="../img/HCMUT_official_logo.png" alt="HCMUT logo">
 
                 <ul class="nav col-11 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -64,13 +70,15 @@
             </div>
 
 
-            <div class="row col-md-2 navbar_right text-center">
-                <button type="button" class="col-5 btn btn-outline-primary me-2 login">
-                    <a href="http://localhost/bku/index.php?page=login">Login</a>
-                </button>
-                <button type="button" class="col-5 btn btn-primary me-2 signup">
-                    <a href="http://localhost/bku/index.php?page=signup">Sign up</a>
-                </button>
+            <div class="row col-md-2 col-5 navbar_right text-center">
+                <?php
+                if (isset($_SESSION["user_id"])) {
+                    include "navbar/inLogin.php";
+                } else {
+                    include "navbar/notInlogin.php";
+                }
+                ?>
+
             </div>
         </header>
     </div>
