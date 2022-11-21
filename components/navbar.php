@@ -23,35 +23,7 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">BKU</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="http://localhost/bku/index.php?page=home">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Courses
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <li><a class="dropdown-item" href="#">Technology</a></li>
-                            <li><a class="dropdown-item" href="#">Business</a></li>
-                            <li><a class="dropdown-item" href="#">Language</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">FAQs</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
-    <div class="container m-auto text-center" id='navbar'>
+    <!-- <div class="container m-auto text-center" id='navbar'>
         <header class="row py-3 mb-4 border-bottom">
             <div class="row col-md-10 col-5 col  navbar-left d-flex justify-content-start align-items-center">
                 <img class="col-md-1 col-1" src="../img/HCMUT_official_logo.png" alt="HCMUT logo">
@@ -71,14 +43,55 @@ if (!isset($_SESSION)) {
 
 
             <div class="row col-md-2 col-5 navbar_right text-center">
-                <?php
-                if (isset($_SESSION["user_id"])) {
-                    include "navbar/inLogin.php";
-                } else {
-                    include "navbar/notInlogin.php";
-                }
-                ?>
 
             </div>
         </header>
-    </div>
+    </div> -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="http://localhost/bku/index.php?page=home">VTK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="http://localhost/bku/index.php?page=home">Home</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Courses
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="http://localhost/bku/index.php?page=courses">Technology</a></li>
+                            <li><a class="dropdown-item" href="#">Business</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=faqs">FAQs</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+                <div class="nav-auth ms-0 ms-lg-5">
+                    <?php
+                    if (isset($_SESSION["user_id"])) {
+                        include "navbar/inLogin.php";
+                    } else {
+                        include "navbar/notInlogin.php";
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="navbar-separate"></div>
