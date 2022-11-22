@@ -1,6 +1,14 @@
 <?php
+include "../utils/query.php";
+
 if (!isset($_SESSION)) {
     session_start();
+}
+
+$user = null;
+
+if (isset($_SESSION["user_id"])) {
+    $user = getUserInfo();
 }
 ?>
 
@@ -23,30 +31,7 @@ if (!isset($_SESSION)) {
 </head>
 
 <body>
-    <!-- <div class="container m-auto text-center" id='navbar'>
-        <header class="row py-3 mb-4 border-bottom">
-            <div class="row col-md-10 col-5 col  navbar-left d-flex justify-content-start align-items-center">
-                <img class="col-md-1 col-1" src="../img/HCMUT_official_logo.png" alt="HCMUT logo">
 
-                <ul class="nav col-11 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="http://localhost/bku/index.php?page=home" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li class="product-nav"><a href="http://localhost/bku/index.php?page=courses" class="nav-link px-2 link-dark">Course</a>
-                        <ul class="sub_nav">
-                            <li><a href="#">Technology</a></li>
-                            <li><a href="#">Business</a></a></li>
-                            <li><a href="#">Language</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="http://localhost/bku/index.php?page=faqs" class="nav-link px-2 link-dark">FAQs</a></li>
-                </ul>
-            </div>
-
-
-            <div class="row col-md-2 col-5 navbar_right text-center">
-
-            </div>
-        </header>
-    </div> -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
@@ -76,6 +61,19 @@ if (!isset($_SESSION)) {
                     <li class="nav-item">
                         <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=faqs">FAQs</a>
                     </li>
+                    <?php
+                    if ($user["role"] == "admin") {
+                        echo '<li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=admin">Administration</a>
+                        </li>
+                        ';
+                    } else {
+                        echo '<li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=myCourse">My Course</a>
+                        </li>
+                        ';
+                    }
+                    ?>
                 </ul>
                 <form class="d-flex">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

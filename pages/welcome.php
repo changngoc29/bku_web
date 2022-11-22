@@ -1,8 +1,8 @@
 <?php
 include "../components/navbar.php";
-if (isset($_SESSION["user_id"])) {
-    if ($user["role"] == "admin") {
-        include "../components/admin/userTable.php";
-    }
-}
+
+echo "
+    <h1>Welcome Page</h1>
+";
+
 include "../components/footer.php";

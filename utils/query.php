@@ -13,6 +13,21 @@ function getUserInfo()
 
     return $user;
 }
+
+function getAllUser()
+{
+    global $conn;
+    $array = [];
+    $query = mysqli_query($conn, "SELECT id, name, username, role FROM user");
+
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            array_push($array, $row);
+        }
+    }
+
+    return $array;
+}
 ?>
 
 <?php ?>

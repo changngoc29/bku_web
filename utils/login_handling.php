@@ -17,7 +17,7 @@ if (isset($_POST["login"])) {
         $cookie_value = $_SESSION["user_id"];
         setcookie($cookie_name, $cookie_value, time() + 3600, "/");
 
-        header("Location: ../pages/welcome.php");
+        header("Location: ../pages/home.php");
     } else {
         header("Location: ../pages/login.php");
     }

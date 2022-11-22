@@ -8,6 +8,10 @@ if ($_GET['page']) {
         header("Location: /bku/pages/faqs.php");
     } elseif ($_GET['page'] == 'login') {
         header("Location: /bku/pages/login.php");
+    } elseif ($_GET['page'] == 'admin') {
+        header("Location: /bku/pages/admin.php");
+    } elseif ($_GET['page'] == 'myCourse') {
+        header("Location: /bku/pages/myCourse.php");
     }
 } else {
     header("Location: /bku/pages/home.php");

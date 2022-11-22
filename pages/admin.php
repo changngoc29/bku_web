@@ -1,16 +1,20 @@
 <?php
 include "../components/navbar.php";
+if (isset($_SESSION["user_id"])) {
+    if ($user["role"] == "admin") {
+        echo "<h4 class='text-center'>User table</h4>";
+        include "../components/admin/userTable.php";
+        echo "<h4 class='text-center'>Course table</h4>";
+        include "../components/admin/courseTable.php";
+    }
+} else {
+    echo '
+        <h4 class="text-danger text-center my-5">You dont have permission to reach this page !</h4>
+    ';
+}
 ?>
 
-<div class="container"></div>
 
-<div class="container">
-    <?php
-    if (isset($_SESSION["user_id"]) && $user["role"] == "admin") {
-        include "../components/admin/userTable.php";
-    }
-    ?>
-</div>
 
 <?php
 include "../components/footer.php"

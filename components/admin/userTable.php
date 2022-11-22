@@ -1,29 +1,37 @@
-<table class="table">
+<table class="user-table table">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Role</th>
+            <th scope="col"></th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        <?php
+        $array = getAllUser();
+        foreach ($array as $row) {
+            echo "
+            <tr>
+            <th scope='row'>{$row['id']}</th>
+            <td>{$row['name']}</td>
+            <td>{$row['username']}</td>
+            <td>@{$row['role']}</td>
+            <td class='col-2'>
+                <button class='user-change-btn btn btn-primary'>Change</button>
+                <button class='user-change-btn btn btn-danger'><a href='http://localhost/bku/utils/user.php?id={$row["id"]}&method=delete' class='text-decoration-none text-white'>Delete</a>
+                </button>
+            </td>
+            </tr>
+            ";
+        }
+        ?>
     </tbody>
 </table>
+
+<a href="http://localhost/bku/utils/user.php"></a>
+
+<?php
+
+?>
