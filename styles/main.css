@@ -5,6 +5,12 @@ html {
 
 /* header */
 
+#nav-logo {
+  width: 30px;
+  height: 30px;
+  background-image: url('../img/HCMUT_official_logo.png');
+}
+
 nav.navbar div div div .signup:hover {
   background-color: #fff;
   opacity: 0.5;

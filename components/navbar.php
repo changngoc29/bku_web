@@ -27,7 +27,7 @@ if (isset($_SESSION["user_id"])) {
         include "../styles/main.css";
         ?>
     </style>
-    <title>Document</title>
+    <title>Course</title>
 </head>
 
 <body>
@@ -35,7 +35,9 @@ if (isset($_SESSION["user_id"])) {
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="http://localhost/bku/index.php?page=home">VTK</a>
+            <a id="nav-logo" class="navbar-brand d-block" href="http://localhost/bku/index.php?page=home">
+                <img class="d-block w-100" src="../img/HCMUT_official_logo.png" alt="">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -62,16 +64,18 @@ if (isset($_SESSION["user_id"])) {
                         <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=faqs">FAQs</a>
                     </li>
                     <?php
-                    if ($user["role"] == "admin") {
-                        echo '<li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=admin">Administration</a>
-                        </li>
-                        ';
-                    } else {
-                        echo '<li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=myCourse">My Course</a>
-                        </li>
-                        ';
+                    if (isset($user)) {
+                        if ($user["role"] == "admin") {
+                            echo '<li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=admin">Administration</a>
+                            </li>
+                            ';
+                        } elseif ($user["role"] == "user") {
+                            echo '<li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="http://localhost/bku/index.php?page=myCourse">My Course</a>
+                            </li>
+                            ';
+                        }
                     }
                     ?>
                 </ul>

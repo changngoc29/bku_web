@@ -28,6 +28,22 @@ function getAllUser()
 
     return $array;
 }
+
+function getAllCourse()
+{
+    global $conn;
+    $array = [];
+    $query = mysqli_query($conn, "SELECT id, name, author, price, image FROM course");
+
+    if ($query->num_rows > 0) {
+        while ($row = $query->fetch_assoc()) {
+            array_push($array, $row);
+        }
+    }
+    // print_r($array);
+
+    return $array;
+}
 ?>
 
 <?php ?>
