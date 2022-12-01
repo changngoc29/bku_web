@@ -64,7 +64,7 @@
             <td>{$course['price']}</td>
             <td>{$course['image']}</td>
             <td class='col-2'>
-                <button class='course-change-btn btn btn-outline-primary' type='button' data-bs-toggle='modal' data-bs-target='#updateCourseModal' data-bs-whatever='{$course['id']}'>Change</button>
+                <button class='course-change-btn btn btn-outline-primary' type='button' data-bs-toggle='modal' data-bs-target='#updateCourseModal' data-bs-courseID='{$course['id']}'>Change</button>
                 <button class='course-change-btn btn btn-danger' ><a href=\"{$url_delete}\" class='text-decoration-none text-white'>Delete</a></button>
             </td>
             </tr>
@@ -115,19 +115,19 @@
 </div>
 
 <script>
-    var updateUserModal = document.getElementById('updateCourseModal')
-    updateUserModal.addEventListener('show.bs.modal', function(event) {
+    var updateCourseModal = document.getElementById('updateCourseModal')
+    updateCourseModal.addEventListener('show.bs.modal', function(event) {
         // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
-        var id = button.getAttribute('data-bs-whatever')
+        var courseId = button.getAttribute('data-bs-courseID')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
         // Update the modal's content.
 
-        var idInput = updateCourseModal.querySelector('#course-modal__id');
+        var courseInput = updateCourseModal.querySelector('#course-modal__id');
 
-        idInput.value = id
+        courseInput.value = courseId;
     })
 </script>

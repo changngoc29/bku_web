@@ -114,15 +114,14 @@
         // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
-        var id = button.getAttribute('data-bs-whatever')
+        var userId = button.getAttribute('data-bs-whatever')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
         // Update the modal's content.
 
-        var idInput = updateUserModal.querySelector('#user-modal__id');
-
-        idInput.value = id
+        var idUserInput = updateUserModal.querySelector('#user-modal__id');
+        idUserInput.value = userId;
     })
 </script>
 <?php
